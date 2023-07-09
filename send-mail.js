@@ -1,24 +1,19 @@
 const sendFormEl = document.getElementById("sendmail");
-// const form = document.getElementById("form");
+const fromEl = document.getElementById("from");
+const subjectEl = document.getElementById("subject");
+const emailEl = document.getElementById("emails");
+const messageEl = document.getElementById("message");
+const errorEl = document.getElementById("error");
+const successEl = document.getElementById("success");
 
-// console.log(sendFormEl);
-// console.log(fromEl);
-// console.log(subjectEl);
-// console.log(emailEl);
-// console.log(messageEl);
+errorEl.style.display = "none";
+successEl.style.display = "none";
 
 sendFormEl.addEventListener("submit", async function (e) {
-  const fromEl = document.getElementById("from");
-  const subjectEl = document.getElementById("subject");
-  const emailEl = document.getElementById("emails");
-  const messageEl = document.getElementById("message");
-  const errorEl = document.getElementById("error");
-  const successEl = document.getElementById("success");
-
   e.preventDefault();
 
-  errorEl.style.display = "none";
-  successEl.style.display = "none";
+  successEl.textContent = "Sending mail";
+  successEl.style.display = "block";
 
   let from = fromEl.value;
   let subject = subjectEl.value;
@@ -52,9 +47,9 @@ sendFormEl.addEventListener("submit", async function (e) {
 
     if (statusCode === 200) {
       successEl.textContent = data.message;
-      successEl.style.display = "block";
       sendFormEl.reset();
-    } else if (statusCode === 400) {
+    } else {
+      successEl.style.display = "none";
       errorEl.textContent = data.message;
       errorEl.style.display = "block";
     }

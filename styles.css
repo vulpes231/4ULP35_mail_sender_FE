@@ -53,8 +53,18 @@ button {
 
 #error {
   color: red;
+  background-color: rgba(255, 0, 0, 0.237);
+  border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
 
 #success {
   color: green;
+  background-color: rgba(0, 128, 0, 0.251);
+  border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
