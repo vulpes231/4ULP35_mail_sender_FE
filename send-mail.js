@@ -12,7 +12,8 @@ successEl.style.display = "none";
 sendFormEl.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  successEl.textContent = "Sending mail";
+  errorEl.style.display = "none";
+  successEl.textContent = "Sending mail...";
   successEl.style.display = "block";
 
   let from = fromEl.value;
